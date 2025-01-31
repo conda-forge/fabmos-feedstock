@@ -12,7 +12,7 @@ source:
 
 build:
   number: {{ build }}
-  skip: true  # [win]
+  #skip: true  # [win]
 
 requirements:
   build:
@@ -22,6 +22,7 @@ requirements:
     - make                                   # [not win]
     - {{ compiler('fortran') }}              # [not win]
     - {{ stdlib("c") }}                      # [not win] on Windows this pulls in VS and causes cmake to use its cl.exe, which is incompatible with the m2w64 version of windres.exe
+    - ninja                                  # [win]
     - {{ compiler('m2w64_fortran') }}        # [win]
     - {{ stdlib("m2w64_c") }}                # [win]
   host:
