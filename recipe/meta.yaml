@@ -1,5 +1,5 @@
 {% set version = "0.3.1" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 package:
   name: fabmos
@@ -12,17 +12,15 @@ source:
 
 build:
   number: {{ build }}
-  #skip: true  # [win]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cmake
-    - make                                   # [not win]
+    - ninja
     - {{ compiler('fortran') }}              # [not win]
     - {{ stdlib("c") }}                      # [not win] on Windows this pulls in VS and causes cmake to use its cl.exe, which is incompatible with the m2w64 version of windres.exe
-    - ninja                                  # [win]
     - {{ compiler('m2w64_fortran') }}        # [win]
     - {{ stdlib("m2w64_c") }}                # [win]
   host:
@@ -35,10 +33,9 @@ requirements:
     - xarray
     - mpi4py
     - netCDF4
-    - pygetm >=0.9.2
+    - pygetm >=0.9.12
     - scipy
     - h5py
-    #- m2w64-gcc-libgfortran      # [win] NB m2w64-gcc-libs and m2w64-gcc-libs-core are added automatically by m2w64 compiler functions under build
 
 test:
   imports:
@@ -52,6 +49,7 @@ about:
   license: GPL-2.0-only
   license_family: GPL
   license_file: LICENSE
+  doc_url: https://github.com/BoldingBruggeman/fabmos/wiki
 
 extra:
   recipe-maintainers:

@@ -9,6 +9,8 @@ Package license: GPL-2.0-only
 
 Summary: FABM offline simulator
 
+Documentation: https://github.com/BoldingBruggeman/fabmos/wiki
+
 Offline simulator for the Framework for Aquatic Biogeochemical Models
 
 
