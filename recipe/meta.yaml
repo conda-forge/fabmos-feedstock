@@ -1,5 +1,5 @@
-{% set version = "0.3.2" %}
-{% set build = 1 %}
+{% set version = "0.3.3" %}
+{% set build = 0 %}
 
 package:
   name: fabmos
@@ -8,7 +8,7 @@ package:
 source:
   #git_url: https://github.com/BoldingBruggeman/fabmos.git
   url: https://github.com/BoldingBruggeman/fabmos/releases/download/v{{ version }}/fabmos.tar.gz
-  sha256: afc0051494ab695a9cf76aaf7c5ae5c30ce0b6f82b552adf90bd02b6a4a086e7
+  sha256: 60477f8e9daf73421460b05ae15ffeb4b268bd0eb9b623a6906d8f6161821120
 
 build:
   number: {{ build }}
